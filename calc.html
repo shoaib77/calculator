@@ -1,0 +1,129 @@
+<html>
+<head>
+<style>
+#textbox{
+	width:260px;
+	height:40px;
+	text-align:center;
+	font-size:20px;
+	border:3px solid red;
+	border-radius:5px;
+}
+#button{
+	width:60px;
+	height:40px;
+	background-color:green;
+	color:white;
+	radius:10px;
+	font-size:15px;
+}
+table{
+border:2px solid gray;
+}
+</style>
+<script>
+	function func1(a){
+	var txtbx=document.getElementById("textbox");
+	txtbx.value=txtbx.value+a;
+}
+var a;
+var flag=0;
+function func2(){
+	if(flag==1)
+	{
+	var b=document.getElementById("textbox").value;
+	document.getElementById("textbox").value=Math.pow(a,b);
+	flag=0;
+	}else
+	{
+	var txtbx=document.getElementById("textbox");
+	txtbx.value=eval(txtbx.value);
+	}
+}
+function func3()
+{
+	document.getElementById("textbox").value="";
+}
+function sqrtfunc(){
+	var txtbx=document.getElementById("textbox");
+	txtbx.value=Math.sqrt(txtbx.value);
+}
+function fact()
+{
+	var txtbx=document.getElementById("textbox");
+	var val=1;
+	for(var i=1;i<=txtbx.value;i++)
+	val=val*i;
+	txtbx.value=val;
+}
+var m;
+function store()
+{
+	m=document.getElementById("textbox").value;
+	document.getElementById("textbox").value="";
+	
+}
+function load()
+{
+	document.getElementById("textbox").value=m;
+	
+}
+function del()
+{
+	var val=document.getElementById("textbox").value;
+	var n=val.slice(0,val.length-1);
+	document.getElementById("textbox").value=n;
+}
+function sign()
+{
+	var val=document.getElementById("textbox").value;
+	
+	document.getElementById("textbox").value=-1*val;
+}
+function power()
+{
+	 a=document.getElementById("textbox").value;
+	document.getElementById("textbox").value="";
+	flag=1;
+
+	
+}
+
+</script>
+
+
+</head>
+<body>
+<table align=center>
+<caption>Calculator</caption>
+<tr> <td colspan=4><input type="text" id="textbox" >
+<tr> <td><input type="button" value="c" id="button" onclick=func3();>
+	<td><input type="button" value="/" id="button" onclick=func1('/');>
+	<td><input type="button" value="*" id="button" onclick=func1('*');>
+	<td><input type="button" value="<<" id="button" onclick=del();>
+<tr> <td><input type="button" value="1" id="button" onclick=func1('1');>
+	<td><input type="button" value="2" id="button" onclick=func1('2');>
+	<td><input type="button" value="3" id="button" onclick=func1('3');>
+	<td><input type="button" value="-" id="button" onclick=func1('-');>
+
+<tr> <td><input type="button" value="4" id="button" onclick=func1('4');>
+	<td><input type="button" value="5" id="button" onclick=func1('5');>
+	<td><input type="button" value="6" id="button" onclick=func1('6');>
+	<td><input type="button" value="+" id="button" onclick=func1('+');>
+<tr> <td><input type="button" value="7" id="button" onclick=func1('7');>
+	<td><input type="button" value="8" id="button" onclick=func1('8');>
+	<td><input type="button" value="9" id="button" onclick=func1('9');>
+	<td><input type="button" value="SQRT" id="button" onclick=sqrtfunc();>
+<tr> <td><input type="button" value="0" id="button" onclick=func1('0');>
+	<td><input type="button" value="." id="button" onclick=func1('.'); >
+	<td><input type="button" value="+/-" id="button" onclick=sign();>
+	<td><input type="button" value="=" id="button" onclick=func2()>
+<tr> <td><input type="button" value="M-" id="button" onclick=load();>
+	<td><input type="button" value="M+" id="button" onclick=store();>
+	<td><input type="button" value="POW" id="button" onclick=power();>
+	<td><input type="button" value="!" id="button" onclick=fact()>
+
+
+</table>
+</body>
+</html>
